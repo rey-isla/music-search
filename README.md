@@ -16,6 +16,7 @@ The requirements are as follows:
 
 + Display all the information from the previous cell plus the lyrics returned from the wikia service.
   
-Additional Features:
+  
+#### Additional Features:
 1. Infinite Loading
 2. Support for iPhones, iPads and all orientation modes
