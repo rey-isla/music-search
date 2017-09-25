@@ -19,9 +19,6 @@ extension Constants {
         /// "json" so we'll handle the formatting issues using a custom JSONSerialization extension static method called
         /// cleanedJsonObject(from data: Data)
         static let format = "json"
-
-        /// Restricts the type of results we'll receive from Apple's iTunes API.
-        static let mediaType = "music"
     }
 }
 

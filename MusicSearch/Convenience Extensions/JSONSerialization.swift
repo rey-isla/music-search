@@ -20,16 +20,17 @@ extension JSONSerialization {
         
         if let _ = rawJson { return rawJson }
         
-        // Attempt to handle invalid JSON format by removing any characters before the first curly bracket
         guard var stringDataRepresentation = String(data: data, encoding: .utf8) else {
             return rawJson
         }
-        
+
+        // Attempt to clean up invalid data by removing any characters before the first opening curly bracket.
         guard let indexOfFirstCurlyBracket = stringDataRepresentation.index(of: "{") else {
+            // If there are no curly brackets in the data, simply return the original object because we can't
+            // perform cleanup on the data.
             return rawJson
         }
         
-        // Clean up the invalid data by removing any characters before the first opening curly bracket.
         let invalidJsonStringRangeToRemove = stringDataRepresentation.startIndex..<indexOfFirstCurlyBracket
         stringDataRepresentation.removeSubrange(invalidJsonStringRangeToRemove)
         

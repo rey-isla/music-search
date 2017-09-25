@@ -22,7 +22,6 @@ protocol MusicSearchDataController {
     func clearDownloadedSongs()
     func findSongs(matching searchWord: String, completion: @escaping (Bool) -> ())
     func findAllSongs(matching searchWord: String, completion: @escaping (Bool) -> ())
-    func downloadImage(from imageUrl: URL, completion: @escaping (UIImage) -> ())
 }
 
 protocol ImageSearchDataController {
