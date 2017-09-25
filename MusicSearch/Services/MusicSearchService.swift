@@ -27,9 +27,17 @@ extension Constants {
 
 class MusicSearchService {
     
+    // MARK: - Constants/Type Aliases
     typealias constants = Constants.MusicSearchService
     typealias MusicSearchResponse = (Response<[Song]>)
     
+    /// Finds the songs that matches the passed search word limited to the passed result count.
+    ///
+    /// - Parameters:
+    ///     - searchWord: The `String` search term used for the song search
+    ///     - resultCount: The `String` count used to limit the results
+    ///     - completion: The completion block called after the API returns a response. It captures a
+    ///                   `Response<[Song]>` created from the API response.
     func findSongs(matching searchWord: String, limitedTo resultCount: String = constants.defaultResultCount,
                    completion: @escaping (MusicSearchResponse) -> ()) {
         
@@ -55,7 +63,7 @@ class MusicSearchService {
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                completion(.Error(.API(errorMessage: "Invalid Status Code")))
+                completion(.Error(.API(errorMessage: Constants.Response.invalidStatusCode)))
                 return
             }
             
@@ -75,6 +83,12 @@ class MusicSearchService {
         }.resume()
     }
     
+    /// Finds all songs that matches the passed search word.
+    ///
+    /// - Parameters:
+    ///     - searchWord: The `String` search term used for the song search
+    ///     - completion: The completion block called after the API returns a response. It captures a `Response<[Song]>`
+    ///                   created from the API response.
     func findAllSongs(matching searchWord: String, completion: @escaping (MusicSearchResponse) -> ()) {
         findSongs(matching: searchWord, limitedTo: constants.maxResultCount, completion: completion)
     }

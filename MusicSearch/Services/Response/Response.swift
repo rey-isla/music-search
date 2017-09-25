@@ -8,6 +8,12 @@
 
 import Foundation
 
+extension Constants {
+    struct Response {
+        static let invalidStatusCode = "Invalid Status Code"
+    }
+}
+
 enum Response<T> {
     case Success(T)
     case Error(ResponseError)

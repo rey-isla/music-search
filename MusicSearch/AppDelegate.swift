@@ -16,15 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        let splitViewController = window!.rootViewController as! UISplitViewController
+        guard let splitViewController = window!.rootViewController as? UISplitViewController else { return true }
         
+        // Show both master and detail view controllers if possible e.g. iPads
         splitViewController.preferredDisplayMode = .allVisible
         
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count - 1]
-            as! UINavigationController
-        
-        navigationController.topViewController!.navigationItem.leftBarButtonItem =
-            splitViewController.displayModeButtonItem
         splitViewController.delegate = self
         
         return true
@@ -33,17 +29,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 // MARK: - Split View Delegate
-
 extension AppDelegate: UISplitViewControllerDelegate {
     
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
         
-        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsDetailController = secondaryAsNavController.topViewController
-            as? MusicSearchResultDetailViewController else { return false }
+        guard let secondaryAsNavController = secondaryViewController as? UINavigationController,
+            let topAsDetailController = secondaryAsNavController.topViewController
+                as? MusicSearchResultDetailViewController else { return false }
         
-        if topAsDetailController.detailItem == nil {
-            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+        if topAsDetailController.song == nil {
+            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller
+            // will be discarded. This allows us to show the Search screen first instead of the Detail screen on
+            // smaller devices that can't display both screens.
             return true
         }
         

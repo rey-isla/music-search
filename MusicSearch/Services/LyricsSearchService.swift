@@ -27,9 +27,17 @@ extension Constants {
 
 class LyricsSearchService {
     
+    // MARK: - Constants/Type Aliases
     typealias constants = Constants.LyricsSearchService
     typealias LyricsSearchResponse = (Response<String>)
     
+    /// Finds the lyrics of the passed song and artist.
+    ///
+    /// - Parameters:
+    ///     - songName: The `String` search term used for the song name search
+    ///     - artistName: The `String` search term used for the song's artist name search
+    ///     - completion: The completion block called after the API returns a response. It captures a
+    ///                   `Response<String>` created from the API response.
     func findLyrics(of songName: String, by artistName: String, completion: @escaping (LyricsSearchResponse) -> ()) {
         
         let queryItems = [
@@ -53,12 +61,12 @@ class LyricsSearchService {
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                completion(.Error(.API(errorMessage: "Invalid Status Code")))
+                completion(.Error(.API(errorMessage: Constants.Response.invalidStatusCode)))
                 return
             }
             
             // Use a custom JSONSerialization extension method of cleaning up the data because the format returned
-            // by the API is invalid JSON.
+            // by the API is an invalid JSON.
             guard let rawJson = JSONSerialization.cleanedJsonObject(from: data), let json = rawJson as? [String: Any],
                 let lyrics = json["lyrics"] as? String else {
                     completion(.Error(.Parsing))

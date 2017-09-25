@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C203197B1F7887FF0057E180 /* MusicSearchResultDetailDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C203197A1F7887FF0057E180 /* MusicSearchResultDetailDataController.swift */; };
+		C203197D1F7890E80057E180 /* ImageDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C203197C1F7890E80057E180 /* ImageDownloadService.swift */; };
 		C21927131F76E7EA008F3FE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21927121F76E7EA008F3FE5 /* AppDelegate.swift */; };
 		C21927151F76E7EA008F3FE5 /* MusicSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21927141F76E7EA008F3FE5 /* MusicSearchResultsViewController.swift */; };
 		C21927171F76E7EA008F3FE5 /* MusicSearchResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21927161F76E7EA008F3FE5 /* MusicSearchResultDetailViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C203197A1F7887FF0057E180 /* MusicSearchResultDetailDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchResultDetailDataController.swift; sourceTree = "<group>"; };
+		C203197C1F7890E80057E180 /* ImageDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadService.swift; sourceTree = "<group>"; };
 		C219270F1F76E7EA008F3FE5 /* MusicSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C21927121F76E7EA008F3FE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C21927141F76E7EA008F3FE5 /* MusicSearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchResultsViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				C21927161F76E7EA008F3FE5 /* MusicSearchResultDetailViewController.swift */,
+				C203197A1F7887FF0057E180 /* MusicSearchResultDetailDataController.swift */,
 			);
 			path = MusicSearchResultDetail;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 				C2C36C261F782AEF00070967 /* Response */,
 				C2E13F4E1F782DA400B95E3D /* MusicSearchService.swift */,
 				C2E13F561F783C4C00B95E3D /* LyricsSearchService.swift */,
+				C203197C1F7890E80057E180 /* ImageDownloadService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -343,8 +349,10 @@
 				C2E13F551F782EDA00B95E3D /* Request.swift in Sources */,
 				C2E13F571F783C4C00B95E3D /* LyricsSearchService.swift in Sources */,
 				C21927151F76E7EA008F3FE5 /* MusicSearchResultsViewController.swift in Sources */,
+				C203197D1F7890E80057E180 /* ImageDownloadService.swift in Sources */,
 				C2C36C1F1F7828A000070967 /* MusicSearchResultsDataController.swift in Sources */,
 				C21927131F76E7EA008F3FE5 /* AppDelegate.swift in Sources */,
+				C203197B1F7887FF0057E180 /* MusicSearchResultDetailDataController.swift in Sources */,
 				C2E13F4B1F782C4900B95E3D /* Response.swift in Sources */,
 				C21ECFE41F784CB90067AD13 /* JSONSerialization.swift in Sources */,
 				C2E13F4D1F782D2500B95E3D /* Constants.swift in Sources */,

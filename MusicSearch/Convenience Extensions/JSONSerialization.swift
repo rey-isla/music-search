@@ -10,7 +10,11 @@ import Foundation
 
 extension JSONSerialization {
    
-    /// Attempts to return a JSON object by cleaning invalid formatted data. 
+    /// Attempts to return a JSON object by cleaning invalid formatted data.
+    ///
+    /// - Parameters:
+    ///     - data: The `Data` to be cleaned
+    /// - Returns: `Any?` object representing the raw JSON object from the cleaned data
     static func cleanedJsonObject(from data: Data) -> Any? {
         let rawJson = try? JSONSerialization.jsonObject(with: data, options: [])
         
